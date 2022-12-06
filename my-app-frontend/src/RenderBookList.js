@@ -6,7 +6,7 @@ import RenderCreateReviews from "./RenderCreateReviews";
 
 
 
-function RenderBookList({onebook,addFavorite,onUpdateItem,onAddReview,onDeleteItem,onereview,setReviews,reviews,items}) {
+function RenderBookList({onebook,addFavorite,onUpdateItem,onAddReview,onDeleteItem,onDeleteReview,onereview,setReviews,reviews,items}) {
   const [book, setBook] = useState(null);
   // const [review, setReview] = useState("");
   // const [score, setScore] = useState("0");
@@ -117,27 +117,13 @@ function RenderBookList({onebook,addFavorite,onUpdateItem,onAddReview,onDeleteIt
 
 
 
-const mapOverMaps = book.reviews.map(review => <RenderCreateReviews onereview={review}  key={review.id} onebook={onebook}/>)
+const mapOverMaps = book.reviews.map(review => <RenderCreateReviews onereview={review}  key={review.id} onebook={onebook} onAddReview={onAddReview} onDeleteReview={onDeleteReview}/>)
 
 return (
   
   <div>
      <div className="book">
-
-     <form  onSubmit={handleSubmitPost}>
    <br/>
-   
-
-
-
- 
- <div>{review}</div>
- 
-</form>
-
-
-
-
 
 <button onClick={handleDeleteClick}>X</button>
 <div key={book.id} >

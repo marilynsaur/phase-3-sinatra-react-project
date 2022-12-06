@@ -4,7 +4,7 @@ import './App.css';
 
 
 
-const RenderCreateReviews = ({addReview,onebook,onereview}) => {
+const RenderCreateReviews = ({onAddReview,onebook,onereview,onDeleteReview}) => {
     const [isVisible,setIsVisible] = useState(false);
    
     const [review, setReview] = useState("");
@@ -16,6 +16,16 @@ const RenderCreateReviews = ({addReview,onebook,onereview}) => {
      
   });
    
+  function handleDeleteClick() {
+    fetch(`http://localhost:9292/reviews/${onereview.id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then((deletedReview) => onDeleteReview(deletedReview));
+  }
+
+
+
     
     
 
@@ -65,7 +75,7 @@ const RenderCreateReviews = ({addReview,onebook,onereview}) => {
           body: JSON.stringify(reviewData),
         })
         .then((r) => r.json())
-        .then((newNewReview) => addReview(newNewReview));
+        .then((newNewReview) => onAddReview(newNewReview));
       }
 
       
@@ -80,9 +90,9 @@ const RenderCreateReviews = ({addReview,onebook,onereview}) => {
   
     return(
         <div className="book" >
-           
+           <button onClick={handleDeleteClick}>Delete Review</button>
             <form  onSubmit={handleSubmit}>
- 
+           
  
  <label >Score:</label>
  <input id="score" value={reviewData.score}

@@ -81,6 +81,11 @@ function onUpdateItem(updatedItem) {
   };
   
 
+  function handleDeleteReview(deletedReview) {
+    const updatedReviews = reviews.filter((review) => review.id !== deletedReview.id);
+    setReviews(updatedReviews);
+  }
+
 
 
   function handleDeleteItem(deletedItem) {
@@ -109,7 +114,7 @@ function onUpdateItem(updatedItem) {
       <NavBar/>
       <Switch>
       <Route exact path="/">
-        <BookList items ={items} handleDeleteItem={handleDeleteItem}  addToFavorite={addToFavorite} onUpdateItem={onUpdateItem} reviews={reviews} filteredReview={filteredReview} handleAddReview={handleAddReview} />
+        <BookList items ={items} handleDeleteItem={handleDeleteItem} handleDeleteReview={handleDeleteReview} addToFavorite={addToFavorite} onUpdateItem={onUpdateItem} reviews={reviews} filteredReview={filteredReview} handleAddReview={handleAddReview} />
         </Route>
         <Route exact path="/Favorite" items={items}>
           <Favorite addToFavorite={addToFavorite} onAddItem={handleAddItem} findfavorite={findfavorite} removeFavorite={removeFavorite}/>

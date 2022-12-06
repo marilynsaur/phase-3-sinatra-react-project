@@ -8,14 +8,14 @@ import RenderCreateReviews from "./RenderCreateReviews";
 
 function RenderBookList({onebook,addFavorite,onUpdateItem,onAddReview,onDeleteItem,onereview,setReviews,reviews,items}) {
   const [book, setBook] = useState(null);
-  const [review, setReview] = useState("");
-  const [score, setScore] = useState("0");
+  // const [review, setReview] = useState("");
+  // const [score, setScore] = useState("0");
  
-  const [formReview, setFormReview] = useState({
-    score:"",
-    book_review:"",
+  // const [formReview, setFormReview] = useState({
+  //   score:"",
+  //   book_review:"",
      
-  });
+  // });
 
  
   const [editForm, setEditForm] = useState({
@@ -71,25 +71,34 @@ function RenderBookList({onebook,addFavorite,onUpdateItem,onAddReview,onDeleteIt
 }
 
 
-function handleSubmitPost(e) {
-  e.preventDefault();
-  fetch("http://localhost:9292/reviews", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(reviewData),
-  })
-    .then((r) => r.json())
-    .then((newReview) => onAddReview(newReview));
-}
+// function handleSubmitPost(e) {
+//   e.preventDefault();
+//   fetch("http://localhost:9292/reviews", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(reviewData),
+//   })
+//     .then((r) => r.json())
+//     .then((newReview) => onAddReview(newReview));
+// }
 
-const reviewData = {
-  "score":formReview.score,
-  "book_review":formReview.book_review,
-  "book_id":onebook.id
-  };
+// const reviewData = {
+//   "score":formReview.score,
+//   "book_review":formReview.book_review,
+//   "book_id":onebook.id
+//   };
 
+// function handleChangeTwo(e) {
+//   e.preventDefault();
+//   setFormReview({
+//   ...formReview,
+//   [e.target.name]: e.target.value
+
+//   })
+//   console.log(e.target.value )
+// }
 
 
    
@@ -101,22 +110,14 @@ const reviewData = {
 
   })
   console.log(e.target.value )
-}
+ }
 
-function handleChangeTwo(e) {
-  e.preventDefault();
-  setFormReview({
-  ...formReview,
-  [e.target.name]: e.target.value
 
-  })
-  console.log(e.target.value )
-}
    
 
 
 
-const mapOverMaps = book.reviews.map(review => <RenderCreateReviews onereview={review}  key={review.id} />)
+const mapOverMaps = book.reviews.map(review => <RenderCreateReviews onereview={review}  key={review.id} onebook={onebook}/>)
 
 return (
   
@@ -125,18 +126,9 @@ return (
 
      <form  onSubmit={handleSubmitPost}>
    <br/>
-   <label >Score:</label>
-<input id="score" value={reviewData.score}
-     onChange={handleChangeTwo}name="score"/>
-   <br/>
+   
 
 
-<label >book review:</label>
-<input type="text" id="book_review" value={reviewData.book_review}
-onChange={handleChangeTwo}  name="book_review"/>
- <button type="submit">Add A Book</button>
-  <br/>
-<br/>
 
  
  <div>{review}</div>

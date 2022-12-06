@@ -1,8 +1,8 @@
 import React, { useEffect, useState} from "react";
 import './App.css';
 import { Link } from "react-router-dom";
-import Popup from "./Popup";
-import RenderRender from "./RenderRender";
+import RenderCreateReviews from "./RenderCreateReviews";
+
 
 
 
@@ -69,19 +69,6 @@ function RenderBookList({onebook,addFavorite,onUpdateItem,onAddReview,onDeleteIt
         .then(up => {
           onUpdateItem(up)})
 }
-   
-
-
-
-
-  // const [formData, setFormData] = useState({
-  //   score:"",
-  //   book_review:"",
-    
-    
-  // });
-
-
 
 
 function handleSubmitPost(e) {
@@ -129,7 +116,7 @@ function handleChangeTwo(e) {
 
 
 
-const mapOverMaps = book.reviews.map(review => <RenderRender onereview={review}  key={review.id} />)
+const mapOverMaps = book.reviews.map(review => <RenderCreateReviews onereview={review}  key={review.id} />)
 
 return (
   
@@ -190,9 +177,7 @@ onChange={handleChangeTwo}  name="book_review"/>
   </div> 
   </div>
   
-  {/* <Popup trigger={buttonPopup} setTrigger={setButtonPopup}onebook={onebook}>
-        
-          </Popup> */}
+ 
   </div> 
   </div>
 

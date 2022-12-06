@@ -1,13 +1,13 @@
 
 import React, { useEffect, useState } from "react";
-import {  Route, Switch,useParams } from "react-router-dom";
+import {  Route, Switch } from "react-router-dom";
 import BookList from "./BookList";
 import Favorite from "./Favorite";
 import Footer from "./Footer";
 import BookOrder  from "./BookOrder";
 import NavBar from "./NavBar";
-import CreateReviews from "./CreateReviews";
-import Popup from "./Popup";
+
+
 
 import './App.css';
 
@@ -117,13 +117,6 @@ function onUpdateItem(updatedItem) {
         <Route exact path="/BookOrder">
           <BookOrder onAddItem={handleAddItem} />
         </Route>
-        <Route exact path="/CreateReviews">
-          <CreateReviews  items={items} setItems={setItems}reviews={reviews} setReviews={setReviews}  />
-        </Route>
-        <Route exact path="/books/:id">
-          <CreateReviews  />
-        </Route>
-        
       </Switch>
       <Footer />
       

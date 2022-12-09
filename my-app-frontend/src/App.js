@@ -10,6 +10,7 @@ import NavBar from "./NavBar";
 
 
 import './App.css';
+import RenderCreateReviews from "./RenderCreateReviews";
 
 
 
@@ -114,7 +115,7 @@ function onUpdateItem(updatedItem) {
       <NavBar/>
       <Switch>
       <Route exact path="/">
-        <BookList items ={items} handleDeleteItem={handleDeleteItem} handleDeleteReview={handleDeleteReview} addToFavorite={addToFavorite} onUpdateItem={onUpdateItem} reviews={reviews} filteredReview={filteredReview} handleAddReview={handleAddReview} />
+        <BookList items ={items} handleDeleteItem={handleDeleteItem} handleDeleteReview={handleDeleteReview} addToFavorite={addToFavorite} onUpdateItem={onUpdateItem} reviews={reviews} filteredReview={filteredReview} handleAddReview={handleAddReview} onAddItem={handleAddItem}/>
         </Route>
         <Route exact path="/Favorite" items={items}>
           <Favorite addToFavorite={addToFavorite} onAddItem={handleAddItem} findfavorite={findfavorite} removeFavorite={removeFavorite}/>
@@ -122,6 +123,7 @@ function onUpdateItem(updatedItem) {
         <Route exact path="/BookOrder">
           <BookOrder onAddItem={handleAddItem} />
         </Route>
+        
       </Switch>
       <Footer />
       

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
 import './App.css';
 
 
@@ -40,11 +40,7 @@ const RenderCreateReviews = ({onAddReview,onebook,onereview,onDeleteReview}) => 
         
       });
 
-      // function handleAdd(){
-      //   bookReview.push({
-      //     [formData.book_review]: formData.book_review
-      //   });
-      // }
+    
       function handleChange(e) {
         e.preventDefault();
         setFormReview({
@@ -66,7 +62,7 @@ const RenderCreateReviews = ({onAddReview,onebook,onereview,onDeleteReview}) => 
     
         
         
-    
+
         fetch("http://localhost:9292/reviews", {
           method: "POST",
           headers: {
@@ -89,15 +85,13 @@ const RenderCreateReviews = ({onAddReview,onebook,onereview,onDeleteReview}) => 
 
   
     return(
-        <div className="book" >
-           <button onClick={handleDeleteClick}>Delete Review</button>
+        <div >
+            <button onClick={handleDeleteClick}>Delete Review</button>
             <form  onSubmit={handleSubmit}>
-           
- 
- <label >Score:</label>
- <input id="score" value={reviewData.score}
-       onChange={handleChange}name="score"/>
-     <br/>
+            <label >Score:</label>
+            <input id="score" value={reviewData.score}
+            onChange={handleChange}name="score"/>
+             <br/>
 
 
  <label >book review:</label>
@@ -112,9 +106,7 @@ const RenderCreateReviews = ({onAddReview,onebook,onereview,onDeleteReview}) => 
    </div>
  </form>
 
- <div>{onereview.book_review}</div>
- <div>{onereview.score}</div>
-
+ 
         </div>
           );
        

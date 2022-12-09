@@ -49,7 +49,7 @@ class ApplicationController < Sinatra::Base
 
 
 
-    post '/books' do
+    post '/books/:id' do
       book = Book.create(
         title: params[:title],
         author: params[:author],

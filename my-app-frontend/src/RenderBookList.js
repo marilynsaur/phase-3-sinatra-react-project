@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 import './App.css';
 import { Link } from "react-router-dom";
 import Favorite from "./Favorite";
-// import RenderCreateReviews from "./RenderCreateReviews";
+import BookOrder from "./BookOrder";
 
 
 
@@ -170,9 +170,11 @@ function handleChangePostReview(e) {
 return (
   
   <div>
+      
+
      <div className="book">
    <br/>
-
+ 
 <button onClick={handleDeleteClick}>X</button>
 <div key={book.id} >
 <div><h3>{book.id}</h3></div>
@@ -206,15 +208,14 @@ return (
    <div>{reviewData.book_review}</div>
    </div>
  </form>
- {/* < BookOrder bookitems/> */}
+ 
   <br/> 
    <br/>
   <form onSubmit={handleSubmitPatch}>
     <input type="text" name="title" value={editFormPatch.title} onChange={handleChangePatch}/>
     <input type="text" name="image" value={editFormPatch.image} onChange={handleChangePatch}/>
-          <button type="submit">Edit</button>
-        
-            </form>
+    <button type="submit">Edit Book</button>
+  </form>
             
 
 
@@ -243,6 +244,7 @@ return (
   
  
   </div> 
+ 
   </div>
 
     

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 
 
-const BookOrder = () => {
+const BookOrder = ({}) => {
   // const [isVisible,setIsVisible] = useState(false);
+ 
 
   // const visibleHandleClick = event => {
   //   setIsVisible(current => !current);
@@ -18,37 +19,38 @@ const BookOrder = () => {
         
   //     });
 
-  //     function handleChange(event) {
-  //       event.preventDefault();
-  //       setFormData({
-  //         ...formData,
-  //         [event.target.id]: event.target.value,
+      // function handleChange(event) {
+      //   event.preventDefault();
+      //   setFormData({
+      //     ...formData,
+      //     [event.target.id]: event.target.value,
          
-  //       });
-  //       // setFormData(event.target.value);
-  //       console.log(formData)
-  //     }
+      //   });
+      //   // setFormData(event.target.value);
+      //   console.log(formData)
+      // }
     
-  //     function handleSubmit(event) {
-  //       event.preventDefault();
+      // function handleSubmit(event) {
+      //   event.preventDefault();
     
-  //       const itemData = {
-  //       "title":formData.title,
-  //       "image":formData.image,
-  //       "book_id":onebook.id
-        
-  //       };
+       
     
-  //       fetch("http://localhost:9292/books", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(itemData),
-  //       })
-  //       .then((r) => r.json())
-  //       .then((newNewItem) => onAddItem(newNewItem));
-  //     }
+      //   fetch(`http://localhost:9292/books/${book.id}`, {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(itemData),
+      //   })
+      //   .then((r) => r.json())
+      //   .then((newNewItem) => onAddItem(newNewItem));
+      // }
+
+      // const itemData = {
+      //   "title":formData.title,
+      //   "image":formData.image,
+      //   "id":formData.id
+      //   };
     return(
       <div>
         <div className="book">

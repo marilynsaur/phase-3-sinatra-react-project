@@ -6,17 +6,21 @@ import BookOrder from "./BookOrder";
 
 
 
-const BookList = ({items,onAddItem,handleDeleteItem,handleDeleteReview,handleAddReview,addToFavorite,onUpdateItem,reviews,filteredReview}) => {
-  console.log(reviews)
-  const [search,setSearch]= useState("");
+
+const BookList = ({items,onAddItem,handleDeleteItem,handleClick,handleDeleteReview,handleAddReview,addToFavorite,onUpdateItem,reviews}) => {
+  const [search, setSearch] = useState("");
+  const filteredReview = items.filter(item=> item.title);
+  
+  const filteredBook = items.filter(item=> item.title.toLowerCase().includes(search.toLowerCase()));
+    
+    const bookitems = filteredBook.map(book => <RenderBookList onebook={book}  key={book.id} onDeleteItem={handleDeleteItem} onDeleteReview={handleDeleteReview} onUpdateItem={onUpdateItem} handleClick={handleClick}  addFavorite={addToFavorite} onAddReview={handleAddReview} onAddItem={onAddItem}/>)
+  
   
   
   
   
    
-    const filteredBook = items.filter(item=> item.title.toLowerCase().includes(search.toLowerCase()));
-    
-    const bookitems = filteredBook.map(book => <RenderBookList onebook={book}  key={book.id} onDeleteItem={handleDeleteItem} onDeleteReview={handleDeleteReview} onUpdateItem={onUpdateItem} addFavorite={addToFavorite} onAddReview={handleAddReview} onAddItem={onAddItem}/>)
+   
     
     
     
@@ -28,11 +32,16 @@ const BookList = ({items,onAddItem,handleDeleteItem,handleDeleteReview,handleAdd
         
        
           < SearchBar search={search} setSearch={setSearch}/>
+          <div className="book-grid">
+          { bookitems}
+        
+          <br></br>
          
           <br></br>
-          <div className="book-grid">
+          
+        
          
-          {bookitems}
+      
          
          </div>
  

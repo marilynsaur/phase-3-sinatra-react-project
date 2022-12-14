@@ -7,6 +7,7 @@ import BookOrder from "./BookOrder";
 
 
 
+
 const BookList = ({items,onAddItem,handleDeleteItem,handleClick,handleDeleteReview,handleAddReview,addToFavorite,onUpdateItem,reviews}) => {
   const [search, setSearch] = useState("");
   const filteredReview = items.filter(item=> item.title);
@@ -32,6 +33,7 @@ const BookList = ({items,onAddItem,handleDeleteItem,handleClick,handleDeleteRevi
         
        
           < SearchBar search={search} setSearch={setSearch}/>
+         
           <div className="book-grid">
           { bookitems}
         

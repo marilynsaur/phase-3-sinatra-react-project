@@ -19,6 +19,7 @@ function App() {
   const [favorite, setFavorite] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [unoBook,setUnoBook ] = useState([]);
+ 
   
  
   
@@ -59,7 +60,7 @@ function onUpdateItem(updatedItem) {
 
 
 
-
+let findfavorite = items.filter(item => favorite.includes(item.id));
   
   const addToFavorite = id => {
     if (!favorite.includes(id)) setFavorite(favorite.concat(id));
@@ -68,7 +69,7 @@ function onUpdateItem(updatedItem) {
 
  
 
-  let findfavorite = items.filter(item => favorite.includes(item.id));
+  
 
 
   const removeFavorite = id => {
@@ -103,8 +104,7 @@ function onUpdateItem(updatedItem) {
     setUnoBook(book)
     }
 
-    
- 
+   
 
   return (
     <div>
@@ -114,10 +114,10 @@ function onUpdateItem(updatedItem) {
         <BookList items ={items}   handleClick={handleClick} handleDeleteItem={handleDeleteItem}  addToFavorite={addToFavorite} onUpdateItem={onUpdateItem} reviews={reviews}  handleAddReview={handleAddReview} onAddItem={handleAddItem}/>
         </Route>
         <Route exact path="/Favorite" items={items}>
-          <Favorite addToFavorite={addToFavorite} onAddItem={handleAddItem} findfavorite={findfavorite} removeFavorite={removeFavorite}/>
+          <Favorite addToFavorite={addToFavorite}  findfavorite={findfavorite} onAddItem={handleAddItem} removeFavorite={removeFavorite}/>
         </Route>
         <Route exact path="/BookOrder">
-          <BookOrder onAddItem={handleAddItem} handleClick={handleClick} unoBook={unoBook}/>
+          <BookOrder onAddItem={handleAddItem}  unoBook={unoBook}/>
         </Route>
         
       </Switch>

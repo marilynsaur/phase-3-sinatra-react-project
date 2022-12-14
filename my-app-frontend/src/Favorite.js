@@ -4,11 +4,9 @@ import './App.css';
 
 
 
-    const Favourite = ({addtofavorite,findfavorite,onAddReview,removeFavorite}) => {
+    const Favourite = ({addtofavorite,findfavorite,removeFavorite}) => {
+       
         
-        
-        
-         
           
             
         
@@ -18,6 +16,7 @@ import './App.css';
             <div className="centerList">
             <h1 >Book Details</h1>
            
+ 
              {findfavorite.map((fav) => <div  key={fav.id}>
                 <br></br><br></br>
                 <br></br><br></br>
@@ -42,12 +41,22 @@ import './App.css';
                 <h3>{c.book_id}</h3>
                 <h4>{c.book_review}</h4>
                 <hr />
-            
+           
               </div>
               
-            ))}</h3></div>
+            ))}</h3>
+            
+            
+          
+            
+            </div>
+            
+            
                )}
+            
            </div>
+          
+      
             </>
         );
     };

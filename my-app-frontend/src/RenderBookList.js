@@ -9,29 +9,14 @@ import PatchBook from "./PatchBook";
 
 
 function RenderBookList({onebook,handleClick,addFavorite,onUpdateItem,onAddReview,onDeleteItem}) {
-  const [book, setBook] = useState(null);
- 
+  const [book, setBook] = useState(onebook);
+  console.log(onebook);
   const [formReview, setFormReview] = useState({
     score:"",
     book_review:"",
     book_id:""
   });
     
-useEffect(() => {
-    fetch(`http://localhost:9292/books/${onebook.id}`)
-      .then((r) => r.json())
-      .then((book) => setBook(book));
-  }, [onebook.id]);
-
-  if (!book) return <h2>Loading book data...</h2>;
- 
-  
-  
- 
-  
-
-
-   
 
 
 function handleSubmitPostReview(e) {
@@ -78,13 +63,13 @@ return (
   <DeleteBook onDeleteItem={onDeleteItem} book={book}/>
 <div key={book.id} >
 
-  <div><h3>{book.title}</h3></div>
-  <img src={book.image} alt=""/>
+  <div><h3>{onebook.title}</h3></div>
+  <img src={onebook.image} alt=""/>
   
   <br></br>
   
    <Link to="/favorite">     
-   <button onClick={() => addFavorite(onebook.id)}>Details of the book</button>
+   <button onClick={() => addFavorite(book.id)}>Details of the book</button>
     </Link>
   
    <br/> 

@@ -80,7 +80,7 @@ class ApplicationController < Sinatra::Base
       # delete the review
       book.destroy
       # send a response with the deleted review as JSON
-      book.to_json(include: :reviews)
+      book.to_json
     end
   # # Add your routes here
   # get "/" do

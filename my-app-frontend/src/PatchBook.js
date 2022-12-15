@@ -3,6 +3,8 @@ import './App.css';
 
 
 const PatchBook = ({onUpdateItem,book}) => {
+   
+      
     const [editFormPatch, setEditFormPatch] = useState({
    
         title: "",
@@ -23,11 +25,11 @@ const PatchBook = ({onUpdateItem,book}) => {
             .then((up) => onUpdateItem(up))
     }
    
-    function handleChangePatch(e) {
-        e.preventDefault();
+    function handleChangePatch(event) {
+        event.preventDefault();
         setEditFormPatch({
         ...editFormPatch,
-        [e.target.name]: e.target.value
+        [event.target.name]: event.target.value
       
         })
        
@@ -37,9 +39,12 @@ const PatchBook = ({onUpdateItem,book}) => {
     return(
         <div>
     <form onSubmit={handleSubmitPatch}>
-    <input type="text" name="title" value={editFormPatch.title} onChange={handleChangePatch}/>
-    <input type="text" name="image" value={editFormPatch.image} onChange={handleChangePatch}/>
+    <input type="text" name="title" value={editFormPatch.title}  placeholder=" title here" onChange={handleChangePatch}/>
+    <input type="text" name="image" value={editFormPatch.image}  placeholder=" Book image here" onChange={handleChangePatch}/>
     <button type="submit">Edit Book</button>
+    
+   
+   
     </form>
         </div>
     );

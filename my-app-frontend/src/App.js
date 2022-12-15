@@ -31,7 +31,11 @@ function App() {
        
     console.log(reviews)
   
-
+    function handleAddReview(newReview) {
+      console.log("a new Review:", newReview);
+      let allReviews=[...reviews,newReview]
+      setReviews(allReviews)
+    }
   
 
   
@@ -92,11 +96,7 @@ let findfavorite = items.filter(item => favorite.includes(item.id));
     setItems(allItems)
   }
 
-  function handleAddReview(newReview) {
-    console.log("a new Review:", newReview);
-    let allReviews=[...reviews,newReview]
-    setReviews(allReviews)
-  }
+  
   
 
   function handleClick(book) {
